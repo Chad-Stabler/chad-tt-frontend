@@ -4,12 +4,12 @@ import { useSearchParams } from 'react-router-dom';
 export default function useSearchForm() {
   const [searchParams, setSearchParams] = useSearchParams();
   const useableSearchParams = Object.fromEntries(searchParams.entries());
-  const [pokemon, setPokemon] = useState(useableSearchParams.pokemon || '');
+  const [games, setGames] = useState(useableSearchParams.games || '');
   
   return {
-    pokemon,
+    games,
     searchParams: useableSearchParams,
-    setPokemon,
+    setGames,
     setSearchParams,
   };
 }

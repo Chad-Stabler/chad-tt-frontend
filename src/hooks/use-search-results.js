@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
-import { search } from '../services/pokeDex';
+import { search } from '../services/games';
 import { useInView } from 'react-intersection-observer';
 
 export default function useSearchResults() {
@@ -24,7 +24,7 @@ export default function useSearchResults() {
     },
   }).ref;
 
-  const searchPokeDex = async (searchObj) => {
+  const searchGames = async (searchObj) => {
     if (searchObj.page == null) {
       searchObj.page = 1;
     }
@@ -37,14 +37,14 @@ export default function useSearchResults() {
       setError('Error' + e.toString());
     }
   };
-  useEffect(() => void searchPokeDex(useableSearchParams), []);
+  useEffect(() => void searchGames(useableSearchParams), []);
 
   return {
     nextPage,
     searchParams,
     searchResults,
     setSearchResults,
-    searchPokeDex,
+    searchGames,
     infinScrollRef,
     error,
   };
