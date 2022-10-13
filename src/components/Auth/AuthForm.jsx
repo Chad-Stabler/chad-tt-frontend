@@ -4,6 +4,7 @@ import { useAuth } from '../../state/UserContext.jsx';
 import { InputController, FormButton } from '../Forms/FormController.jsx';
 import { useForm } from '../Forms/useForm.js';
 import YouTubeEmbed from '../Embeds/YouTube.jsx';
+import TwitchEmbed from '../Embeds/Twitch.jsx';
 import styles from './AuthForm.css';
 
 
@@ -132,5 +133,6 @@ export default function AuthForm({ mode = 'signin' }) {
       </nav>
     </form>
     <YouTubeEmbed embedId="68d_s_rT6_w" />
+    <TwitchEmbed URL="https://www.twitch.tv/jessekazam/clip/WrongCleverFlamingoMoreCowbell-PaEvOkVQJF0xqau0"/>
     </>);
 }
