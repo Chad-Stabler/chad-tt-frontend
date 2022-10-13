@@ -1,6 +1,7 @@
 import { Link, Outlet } from 'react-router-dom';
 import Styles from './Auth.css';
 
+
 export default function Auth() {
   return (
     <div className={Styles.nav}>
