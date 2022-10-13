@@ -132,8 +132,8 @@ export default function AuthForm({ mode = 'signin' }) {
         <Link to={type.switch.link}>{type.switch.prompt}</Link>
       </nav>
     </form>
-    <YouTubeEmbed embedId="68d_s_rT6_w" />
-    <TwitchEmbed URL="https://clips.twitch.tv/embed?clip=IncredulousAbstemiousFennelImGlitch"/>
+    {/* <YouTubeEmbed embedId="68d_s_rT6_w" />
+    <TwitchEmbed URL="https://clips.twitch.tv/embed?clip=IncredulousAbstemiousFennelImGlitch"/> */}
     </>);
 }
 
