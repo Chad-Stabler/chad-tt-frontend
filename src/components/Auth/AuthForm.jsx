@@ -133,7 +133,7 @@ export default function AuthForm({ mode = 'signin' }) {
       </nav>
     </form>
     <YouTubeEmbed embedId="68d_s_rT6_w" />
-    <TwitchEmbed URL="https://clips.twitch.tv/embed?clip=hgGCGbRu1i7VgT"/>
+    <TwitchEmbed URL="https://clips.twitch.tv/embed?clip=IncredulousAbstemiousFennelImGlitch"/>
     </>);
 }
 
