@@ -133,6 +133,8 @@ export default function AuthForm({ mode = 'signin' }) {
       </nav>
     </form>
     <YouTubeEmbed embedId="68d_s_rT6_w" />
-    <TwitchEmbed URL="https://player.twitch.tv/?video=hgGCGbRu1i7VgT"/>
+    <TwitchEmbed URL="https://clips.twitch.tv/embed?clip=hgGCGbRu1i7VgT"/>
     </>);
 }
+
+//https://www.twitch.tv/jessekazam/clip/PlumpFaithfulNostrilEagleEye-hgGCGbRu1i7VgT-n
