@@ -8,6 +8,7 @@ export default function Navigation() {
       {/* <NavLink to="sales">Sales</NavLink>
       <NavLink to="users">Users</NavLink> */}
       <NavLink to="profile">Profile</NavLink>
+      <NavLink to="community">Community</NavLink>
       {/* <NavLink to="search">Search</NavLink> */}
     </nav>
   );
