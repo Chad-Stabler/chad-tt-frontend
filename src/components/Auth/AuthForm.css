@@ -12,10 +12,22 @@
   }
 
   .AuthForm {
-    width: 400px;
-    background: var(--offset-color);
+    width: 17%;
+    min-width: 306px;
+    background: rgb(94, 11, 21);
+    border-radius: 5px;
+    color: rgb(109, 174, 219);
     padding: 25px;
   
-    display: grid;
-    gap: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .AuthForm a, .AuthForm button, .AuthForm input, .AuthForm label {
+    color: rgb(109, 174, 219);
+    margin: 10px;
+  }
+  .AuthForm button {
+    background-color: rgb(12, 56, 97);
   }

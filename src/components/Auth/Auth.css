@@ -1,5 +1,5 @@
 .nav {
-    background-color: gray;
+    background-color: rgb(12, 56, 97);
     display: flex;
     gap: 20px;
     flex-direction: column-reverse;

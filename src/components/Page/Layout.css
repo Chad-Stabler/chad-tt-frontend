@@ -2,8 +2,14 @@
     min-height: 100vh;
     display: grid;
     grid-template-rows: auto 1fr;
+    background-color: rgb(12, 56, 97);
   
     main {
       padding: var(--padding);
     }
+  }
+
+  .Layout header {
+    background-color: rgb(208, 37, 37);
+    color: rgb(12, 56, 97);
   }
