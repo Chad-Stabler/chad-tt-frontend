@@ -115,6 +115,14 @@ export default function AuthForm({ mode = 'signin' }) {
         onChange={handleChange}
       />
 
+      {mode === 'signup' ? <InputController
+      label="Gamertag"
+      name="gamertag"
+      required
+      value={credentials.gamertag}
+      onChange={handleChange}
+      /> : <></>}
+
       <InputController
         label="Password"
         name="password"
