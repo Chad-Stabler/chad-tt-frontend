@@ -116,11 +116,11 @@ export default function AuthForm({ mode = 'signin' }) {
       />
 
       {mode === 'signup' ? <InputController
-      label="Gamertag"
-      name="gamertag"
-      required
-      value={credentials.gamertag}
-      onChange={handleChange}
+        label="Gamertag"
+        name="gamertag"
+        required
+        value={credentials.GamerTag}
+        onChange={handleChange}
       /> : <></>}
 
       <InputController
