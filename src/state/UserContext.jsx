@@ -34,10 +34,10 @@ export default function UserProvider({ children }) {
   );
 }
 
-// export function UseUser() {
-//   const { user } = useContext(UserContext);
-//   return user;
-// }
+export function useUser() {
+  const { user } = useContext(UserContext);
+  return user;
+}
 
 export function useAuth() {
   const [error, setError] = useState(null);
