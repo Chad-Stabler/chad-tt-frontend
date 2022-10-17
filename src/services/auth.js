@@ -1,6 +1,6 @@
 import { del, get, post } from './request.js';
 
-const URL = 'https://myst-backend.herokuapp.com/api/v1/users';
+const URL = 'http://localhost:7890/api/v1/users';
 //this is where the routes need to match with the BE 'aka api/v1/users
 
 

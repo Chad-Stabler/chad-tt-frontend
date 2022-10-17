@@ -1,28 +1,24 @@
 .YouTubeEmbed {
     overflow: hidden;
-    padding-bottom: 57%;
+    margin-top: 20px;
+    padding-bottom: 250px;
     position: relative;
-    height: 0;
+    height: 300px;
 }
 .YouTubeEmbed iframe {
     left: 0;
     top: 0;
-    height: 240px;
+    height: 300px;
     width: 450px;
     position: absolute;
 }
 
-/* .TwitchEmbed {
-    overflow: hidden;
-    padding-bottom: 57%;
-    position: relative;
-    height: 0;
+.TwitchEmbed {
+    margin-top: 20px;
 }
-
-.TwitchEmbed TwitchPlayer {
+.TwitchEmbed iframe {
     left: 0;
     top: 0;
     height: 300px;
-    width: 500px;
-    position: absolute;
-} */
+    width: 450px;
+}

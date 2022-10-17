@@ -1,4 +1,4 @@
-.Header {
+.Header { 
     z-index: 1000;
     position: sticky;
     top: 0;
@@ -6,7 +6,7 @@
     height: var(--header-height);
   
     background: var(--header-color);
-    color: var(--white-color);
+    color: rgb(12, 56, 97);
   
     display: grid;
     grid-template-columns: auto 1fr auto;
@@ -29,4 +29,7 @@
         display: initial;
       }
     }
-} 
+}
+.Header nav a {
+  color: rgb(12, 56, 97);
+}

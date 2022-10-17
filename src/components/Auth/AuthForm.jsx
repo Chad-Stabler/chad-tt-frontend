@@ -1,10 +1,10 @@
 /* eslint-disable max-len */
-import { Link } from 'react-router-dom';
-import { useAuth } from '../../state/UserContext.jsx';
+import { Link, Navigate } from 'react-router-dom';
+import { useAuth, useUser } from '../../state/UserContext.jsx';
 import { InputController, FormButton } from '../Forms/FormController.jsx';
 import { useForm } from '../Forms/useForm.js';
-import YouTubeEmbed from '../Embeds/YouTube.jsx';
-import TwitchEmbed from '../Embeds/Twitch.jsx';
+// import YouTubeEmbed from '../Embeds/YouTube.jsx';
+// import TwitchEmbed from '../Embeds/Twitch.jsx';
 import styles from './AuthForm.css';
 
 
@@ -39,6 +39,7 @@ import styles from './AuthForm.css';
 
 
 export default function AuthForm({ mode = 'signin' }) {
+  const user = useUser();
   const { signUp, signIn, error } = useAuth();
   const [credentials, handleChange] = useForm({
     email: '',
@@ -57,10 +58,10 @@ export default function AuthForm({ mode = 'signin' }) {
     button: 'Sign In',
     switch: {
       prompt: 'Need to create an account?',
-      link: 'signup',
+      link: '/signup',
     },
     action: signIn,
-    redirect: '/Profile'
+    redirect: '/profile'
   };
 
   const signup = {
@@ -68,15 +69,16 @@ export default function AuthForm({ mode = 'signin' }) {
     button: 'Sign Up',
     switch: {
       prompt: 'Already have an account?',
-      link: '../',
+      link: '/signin',
     },
     action: signUp,
-    redirect: '/Profile'
+    redirect: '/profile'
   };
 
   const modes = { signin, signup };
   const type = modes[mode];
 
+  if (user) return <Navigate to="/profile" />;
 
   return (
 
@@ -114,6 +116,14 @@ export default function AuthForm({ mode = 'signin' }) {
         value={credentials.email}
         onChange={handleChange}
       />
+
+      {mode === 'signup' ? <InputController
+        label="Gamertag"
+        name="GamerTag"
+        required
+        value={credentials.GamerTag}
+        onChange={handleChange}
+      /> : <></>}
 
       <InputController
         label="Password"

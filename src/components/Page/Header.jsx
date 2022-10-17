@@ -1,5 +1,4 @@
 import Navigation from './Navigation.jsx';
-import User from './User.jsx';
 import styles from './Header.css';
 // import SlideOutMenu from './SlideOutMenu.jsx';
 
@@ -10,13 +9,12 @@ export default function Header() {
         {/* <SlideOutMenu /> */}
       </div>
 
-      <h1>My App</h1>
+      <h1>Twitch Tok</h1>
 
       <div className={styles.NavigationContainer}>
         <Navigation />
       </div>
 
-      <User />
     </header>
   );
 }

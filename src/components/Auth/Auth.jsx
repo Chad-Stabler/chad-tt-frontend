@@ -7,9 +7,9 @@ export default function Auth() {
     <div className={Styles.nav}>
       <h1>Auth</h1>
       <nav>
-        <Link to="home">Home</Link>
-        <Link to="signIn">Sign In</Link>
-        <Link to="signUp">Sign Up</Link>
+        <Link to="/home">Home</Link>
+        <Link to="/signin">Sign In</Link>
+        <Link to="/signup">Sign Up</Link>
       </nav>
       <Outlet />
     </div>
