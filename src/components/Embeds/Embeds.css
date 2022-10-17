@@ -22,3 +22,45 @@
     height: 300px;
     width: 450px;
 }
+
+.ListCard {
+    background-color: rgb(94, 11, 21);
+    border: 2px solid rgb(208, 37, 37);
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 12px;
+    padding: 10px;
+}
+
+.ListCard button {
+    color: rgb(109, 174, 219);
+  background-image: url('/public/wall.jpg');
+  background-size: cover;
+  background-position: 50%;
+  border: 1px solid rgb(208, 37, 37);
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.EmbedCard {
+    width: 475px;
+    border-radius: 5px;
+    background-color: rgb(109, 174, 219);
+    color: rgb(12, 56, 97);
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.EmbedCard .YouTubeEmbed, .EmbedCard .TwitchEmbed {
+    height: 300px;
+    width: 450px;
+}
+
+.EmbedList {
+    height: 750px;
+    overflow: scroll;
+}
