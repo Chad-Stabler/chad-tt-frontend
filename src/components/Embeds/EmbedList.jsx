@@ -13,7 +13,6 @@ export default function EmbedList() {
 
   async function fetchVideos() {
     const data = await getUserVideos();
-    console.log(data);
     setClips(data);
   }
 
