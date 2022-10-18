@@ -1,17 +1,14 @@
-//import React from 'react';
 import EmbedList from '../Embeds/EmbedList';
 import styles from '../Page/Profile.css';
-import ProfileCard from './ProfileCard';
-import ProfileForms from '../Forms/ProfileForms';
+import CommunityCard from './CommunityCard';
 
 
 
 
 export default function Profile() {
   return <section className={styles.ProfileCss}>
-    <ProfileCard />
+    <CommunityCard />
     <EmbedList />
-    <ProfileForms />
   </section>;
 
 }

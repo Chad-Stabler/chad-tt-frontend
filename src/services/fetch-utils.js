@@ -18,3 +18,28 @@ export async function getUserData() {
   const user = await get(`${process.env.USER_URL}/me`);
   return user.data;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+export async function getAllUserData({ gamerTag, avatar_png, platforms }) {
+  const users = await get(`${process.env.USER_URL}/user`, { gamerTag, avatar_png, platforms });
+  return users.data;
+}
