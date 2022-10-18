@@ -9,12 +9,9 @@ import Layout from './components/Page/Layout.jsx';
 // import Users from './components/Users/Users.jsx';
 import AuthForm from './components/Auth/AuthForm.jsx';
 import UserProvider from './state/UserContext.jsx';
-import ProtectedRoute from './components/Auth/ProtectedRoutes.jsx';
 
-
-
-// import Search from './components/Search/Search.jsx';
-// import GameListProvider from './state/GameContext.jsx';
+import ProtectedRoute from './components/Auth/protectedRoutes.jsx';
+import Community from './components/Page/CommunityPage';
   
 export default function App() {
   return (
@@ -26,6 +23,8 @@ export default function App() {
             <Route path="signin" element={<AuthForm mode="signin" />} />
             <Route path="signup" element={<AuthForm mode="signup" />} />
             <Route element={<ProtectedRoute/>}>
+              <Route path="community" element={<Community />}/>
+              
               <Route path="profile" element={<Profile />}/>
               <Route path="/" element={<Profile />}/>
             </Route> 
