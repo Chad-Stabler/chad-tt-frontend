@@ -2,7 +2,7 @@
 import EmbedList from '../Embeds/EmbedList';
 import styles from '../Page/Profile.css';
 import ProfileCard from './ProfileCard';
-
+import ProfileForms from '../Forms/ProfileForms';
 
 
 
@@ -10,6 +10,7 @@ import ProfileCard from './ProfileCard';
 export default function Profile() {
   return <section className={styles.ProfileCss}>
     <ProfileCard />
+    <ProfileForms />
     <EmbedList />
   </section>;
 

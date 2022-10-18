@@ -1,9 +1,18 @@
-import { get } from './request.js';
+/* eslint-disable max-len */
+import { get, post } from './request.js';
+
+
+export async function uploadVideo({ clip_link, users_id, o_site, title }) {
+  const newClip = await post(`${process.env.CLIP_URL}/users`).send({ clip_link, users_id, o_site, title });
+  return newClip;
+}
 
 export async function getUserVideos() {
   const clips = await get(`${process.env.CLIP_URL}/user`);
   return clips.data;
 }
+
+
 
 export async function getUserData() {
   const user = await get(`${process.env.USER_URL}/me`);

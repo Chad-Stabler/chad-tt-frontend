@@ -17,6 +17,7 @@
   "dependencies": {
     "classnames": "^2.3.2",
     "dotenv-webpack": "^8.0.1",
+    "env": "^0.0.2",
     "iframe": "^1.0.0",
     "lint": "^1.1.2",
     "process": "^0.11.10",
