@@ -19,7 +19,7 @@ export default function ProfileCard() {
   }
   useEffect(() => {
     fetchUserData();
-  }, []);
+  }, [userData]);
 
   return <div className={styles.ProfileCard}>
     <img src={userData.avatar_png || '/default.png'}/>
