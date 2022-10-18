@@ -39,7 +39,15 @@ export async function getUserData() {
 
 
 
-export async function getAllUserData({ gamerTag, avatar_png, platforms }) {
-  const users = await get(`${process.env.USER_URL}/user`, { gamerTag, avatar_png, platforms });
+
+export async function getAllUserData() {
+  const users = await get(`${process.env.USER_URL}`);
+  console.log(users.data);
   return users.data;
 }
+
+export async function getAllVideos() {
+  const allClips = await get(`${process.env.USER_URL}`);
+  return allClips.data;
+}
+

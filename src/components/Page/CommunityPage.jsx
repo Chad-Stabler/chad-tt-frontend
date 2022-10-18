@@ -1,14 +1,13 @@
-import EmbedList from '../Embeds/EmbedList';
+import CommunityEmbed from '../Embeds/EmbedList';
 import styles from '../Page/Profile.css';
 import CommunityCard from './CommunityCard';
 
 
 
 
-export default function Profile() {
+export default function Community() {
   return <section className={styles.ProfileCss}>
     <CommunityCard />
-    <EmbedList />
+    <CommunityEmbed />
   </section>;
-
 }
