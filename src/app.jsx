@@ -9,7 +9,7 @@ import Layout from './components/Page/Layout.jsx';
 // import Users from './components/Users/Users.jsx';
 import AuthForm from './components/Auth/AuthForm.jsx';
 import UserProvider from './state/UserContext.jsx';
-import ProtectedRoute from './components/Auth/protectedRoutes.jsx';
+import ProtectedRoute from './components/Auth/ProtectedRoutes.jsx';
 
 
 
