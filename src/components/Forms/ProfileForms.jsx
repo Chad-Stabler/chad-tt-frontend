@@ -22,8 +22,8 @@ export default function ProfileCreateForm({ onSubmit }) {
       details.clip_link = vidId;
     } else {
       const vidId = details.clip_link.split('clip/')[1].split('-')[0];
-      console.log(vidId);
       const twitchFormat = `https://clips.twitch.tv/embed?clip=${vidId}`;
+      console.log(twitchFormat);
       details.clip_link = twitchFormat;
     }
     await uploadVideo(clip);
