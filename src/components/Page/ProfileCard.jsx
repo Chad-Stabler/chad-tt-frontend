@@ -15,11 +15,10 @@ export default function ProfileCard() {
   async function fetchUserData() {
     const data = await getUserData();
     setUserData(data);
-    console.log(data);
   }
   useEffect(() => {
     fetchUserData();
-  }, [userData]);
+  }, []);
 
   return <div className={styles.ProfileCard}>
     <img src={userData.avatar_png || '/default.png'}/>
