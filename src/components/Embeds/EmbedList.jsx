@@ -9,7 +9,7 @@ export default function EmbedList() {
 
   useEffect(() => {
     fetchVideos();
-  }, []);
+  }, [setClips]);
 
   async function fetchVideos() {
     const data = await getUserVideos();
@@ -26,6 +26,7 @@ export default function EmbedList() {
             : <TwitchEmbed URL={clip.clip_link}/>}
           <h1>{clip.title}</h1>
           <p>{clip.description || 'No description'}</p>
+          
         </div>
         )
       }

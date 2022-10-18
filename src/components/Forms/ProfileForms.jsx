@@ -21,12 +21,12 @@ export default function ProfileCreateForm({ onSubmit }) {
       const vidId = details.clip_link.split('v=')[1];
       details.clip_link = vidId;
     } else {
-      const vidId = details.clip_link.split('clip/')[1].split('-')[0];
-      console.log(vidId);
+      const vidId = details.clip_link.split('clip/')[1];
       const twitchFormat = `https://clips.twitch.tv/embed?clip=${vidId}`;
       details.clip_link = twitchFormat;
     }
-    await uploadVideo(clip);
+    await uploadVideo(details);
+    
   };
   // function useForm(formData) {
   //   const { getValue } = useForm();

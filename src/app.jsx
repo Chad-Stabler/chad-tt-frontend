@@ -9,11 +9,9 @@ import Layout from './components/Page/Layout.jsx';
 // import Users from './components/Users/Users.jsx';
 import AuthForm from './components/Auth/AuthForm.jsx';
 import UserProvider from './state/UserContext.jsx';
+
 import ProtectedRoute from './components/Auth/protectedRoutes.jsx';
 import Community from './components/Page/CommunityPage';
-
-// import Search from './components/Search/Search.jsx';
-// import GameListProvider from './state/GameContext.jsx';
   
 export default function App() {
   return (
