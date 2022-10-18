@@ -60,6 +60,22 @@
     width: 450px;
 }
 
+.EmbedCard .off form {
+    visibility: hidden;
+    display: none;
+}
+
+.EmbedCard .on form {
+    background: rgb(94, 11, 21);
+    border-radius: 5px;
+    color: rgb(109, 174, 219);
+    padding: 25px;
+    margin: 3px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .EmbedList {
     height: 750px;
     overflow: scroll;
