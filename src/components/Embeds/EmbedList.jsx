@@ -16,6 +16,7 @@ export default function EmbedList() {
     setClips(data);
   }
 
+
   return <div className={styles.ListCard}>
     <div className={styles.EmbedList}>
       {

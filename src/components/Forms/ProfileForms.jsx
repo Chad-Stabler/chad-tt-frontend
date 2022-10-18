@@ -1,7 +1,8 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable max-len */
 import { InputController, FormButton } from './FormController.jsx';
 import { useForm } from './useForm.js';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { uploadVideo } from '../../services/fetch-utils.js';
 import styles from '../Auth/Auth.css';
 
@@ -13,10 +14,18 @@ export default function ProfileCreateForm({ onSubmit }) {
     description: '',
     o_site: ''
   });
-  console.log(details);
   
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (details.o_site === 'youtube') {
+      const vidId = details.clip_link.split('v=')[1];
+      details.clip_link = vidId;
+    } else {
+      const vidId = details.clip_link.split('clip/')[1].split('-')[0];
+      console.log(vidId);
+      const twitchFormat = `https://clips.twitch.tv/embed?clip=${vidId}`;
+      details.clip_link = twitchFormat;
+    }
     await uploadVideo(clip);
   };
   // function useForm(formData) {
@@ -76,7 +85,6 @@ export default function ProfileCreateForm({ onSubmit }) {
         onChange={handleChange}
       />
 
-      <FormButton>submit</FormButton>
-      <p className="error">error</p>
+      <FormButton onSubmit={handleSubmit}>submit</FormButton>
     </form>
   );}

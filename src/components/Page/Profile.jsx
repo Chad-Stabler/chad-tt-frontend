@@ -10,8 +10,8 @@ import ProfileForms from '../Forms/ProfileForms';
 export default function Profile() {
   return <section className={styles.ProfileCss}>
     <ProfileCard />
-    <ProfileForms />
     <EmbedList />
+    <ProfileForms />
   </section>;
 
 }

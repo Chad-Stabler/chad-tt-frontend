@@ -86,9 +86,7 @@ export default function AuthForm({ mode = 'signin' }) {
         <Link to={type.switch.link}>{type.switch.prompt}</Link>
       </nav>
     </form>
-    {/* <YouTubeEmbed embedId="68d_s_rT6_w" />
+    {/*
     <TwitchEmbed URL="https://clips.twitch.tv/embed?clip=IncredulousAbstemiousFennelImGlitch"/> */}
     </>);
 }
-
-//https://www.twitch.tv/jessekazam/clip/PlumpFaithfulNostrilEagleEye-hgGCGbRu1i7VgT-n
