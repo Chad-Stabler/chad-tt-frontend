@@ -90,3 +90,24 @@ redirect routes
   //     </label>
   //   </div>
   // );
+
+
+  // function useForm(formData) {
+  //   const { getValue } = useForm();
+  //   const [data, setData] = useState(formData ?? {});
+    
+  //   useEffect(() => {
+  //     setData(formData ?? {});
+  //   }, [formData]);
+  // }
+    
+  // const handleChange = ({ target }) => {
+  //   setData((data) => ({
+  //     ...data,
+  //     [target.description]: getValue(target),
+  //     [target.clip_link]: getValue(target),
+  //     [target.title]: getValue(target),
+  //     [target.option]: getValue(target)
+  //   }));
+  //   return [data, handleChange];
+  // };

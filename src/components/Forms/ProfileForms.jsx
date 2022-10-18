@@ -28,28 +28,7 @@ export default function ProfileCreateForm({ onSubmit }) {
     await uploadVideo(details);
     
   };
-  // function useForm(formData) {
-  //   const { getValue } = useForm();
-  //   const [data, setData] = useState(formData ?? {});
-    
-  //   useEffect(() => {
-  //     setData(formData ?? {});
-  //   }, [formData]);
-  // }
-    
-  // const handleChange = ({ target }) => {
-  //   setData((data) => ({
-  //     ...data,
-  //     [target.description]: getValue(target),
-  //     [target.clip_link]: getValue(target),
-  //     [target.title]: getValue(target),
-  //     [target.option]: getValue(target)
-  //   }));
-  //   return [data, handleChange];
-  // };
-
-
-
+ 
   return (
     <form className={styles.AuthForm} onSubmit={handleSubmit}>
       <h2>CREATE NEW VIDEO</h2>
