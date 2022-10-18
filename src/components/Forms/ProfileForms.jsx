@@ -23,10 +23,10 @@ export default function ProfileCreateForm({ onSubmit }) {
     } else {
       const vidId = details.clip_link.split('clip/')[1];
       const twitchFormat = `https://clips.twitch.tv/embed?clip=${vidId}`;
-      console.log(twitchFormat);
       details.clip_link = twitchFormat;
     }
     await uploadVideo(details);
+    
   };
   // function useForm(formData) {
   //   const { getValue } = useForm();
