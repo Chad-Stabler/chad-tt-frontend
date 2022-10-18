@@ -3,40 +3,7 @@ import { Link, Navigate } from 'react-router-dom';
 import { useAuth, useUser } from '../../state/UserContext.jsx';
 import { InputController, FormButton } from '../Forms/FormController.jsx';
 import { useForm } from '../Forms/useForm.js';
-// import YouTubeEmbed from '../Embeds/YouTube.jsx';
-// import TwitchEmbed from '../Embeds/Twitch.jsx';
 import styles from './AuthForm.css';
-
-
-// const [email, setEmail] = useState('');
-// const [password, setPassword] = useState('');
-// const [loginEmail, setLoginEmail] = useState('');
-// const [loginPassword, setLoginPassword] = useState('');
-// const { push } = useHistory();
-
-// async function handleSubmit(e) {
-      
-//   e.preventDefault();
-      
-//   const user = await signUp(email, password);
-      
-//   setUser(user);
-//   push('Profile');
-
-// }
-      
-      
-// async function handleLoginSubmit(e) {
-      
-//   e.preventDefault();
-      
-//   const user = await signIn(loginEmail, loginPassword);
-      
-//   setUser(user);
-//   push('Profile');
-// }
-
-
 
 export default function AuthForm({ mode = 'signin' }) {
   const user = useUser();
@@ -82,29 +49,6 @@ export default function AuthForm({ mode = 'signin' }) {
 
   return (
 
-
-    
-  //   <div className="auth">
-  //     <form className="login-form" onSubmit={handleLoginSubmit}>
-  //       <label>Email: <input onChange={e => setLoginEmail(e.target.value)} value={loginEmail} type="email"></input></label>
-  //       <label>Password: <input onChange={e => setLoginPassword(e.target.value)} value={loginPassword} type="password"></input></label>
-  //       <button>Log In</button>
-  //     </form>
-  //     <br></br>
-  //     <hr></hr>
-  //     <br></br>
-  //     <label>Not a user already?
-  //       <form onSubmit={handleSubmit} className="signup-form">
-  //         <label>Email<input onChange={e => setEmail(e.target.value)} value={email} type="email"></input></label>
-  //         <label>Password<input onChange={e => setPassword(e.target.value)} value={password} type="password"></input></label>
-  //         <button>Sign Up</button>
-  //       </form>
-  //     </label>
-  //   </div>
-  // );
-
-
-
     <><form className={styles.AuthForm} onSubmit={handleSubmit}>
       <h2>{type.prompt}</h2>
 
@@ -142,9 +86,7 @@ export default function AuthForm({ mode = 'signin' }) {
         <Link to={type.switch.link}>{type.switch.prompt}</Link>
       </nav>
     </form>
-    {/* <YouTubeEmbed embedId="68d_s_rT6_w" />
+    {/*
     <TwitchEmbed URL="https://clips.twitch.tv/embed?clip=IncredulousAbstemiousFennelImGlitch"/> */}
     </>);
 }
-
-//https://www.twitch.tv/jessekazam/clip/PlumpFaithfulNostrilEagleEye-hgGCGbRu1i7VgT-n

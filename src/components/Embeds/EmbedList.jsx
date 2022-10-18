@@ -16,17 +16,21 @@ export default function EmbedList() {
     setClips(data);
   }
 
-  return <div>
+
+  return <div className={styles.ListCard}>
     <div className={styles.EmbedList}>
       {
         clips.map((clip, i) => <div className={styles.EmbedCard} 
           key={clip.clip_link + i}>
           {clip.o_site === 'youtube' ? <YouTubeEmbed embedId={clip.clip_link}/> 
             : <TwitchEmbed URL={clip.clip_link}/>}
+          <h1>{clip.title}</h1>
+          <p>{clip.description || 'No description'}</p>
         </div>
         )
       }
     </div>
+    <button>Add new clip</button>
   </div>;
 }
 

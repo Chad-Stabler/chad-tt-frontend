@@ -1,7 +1,6 @@
-.Profile {
+.ProfileCss {
     display: flex;
-    gap: 20px;
-    flex-direction: column;
+    flex-direction: row;
     align-items: flex-start;
   
     @media (min-width: 700px) {
@@ -15,3 +14,37 @@
       padding: 0;
     }
   }
+
+.ProfileCss div {
+  margin: 7.5px;
+}
+
+.ProfileCard img {
+    margin-right: 10px;
+    background-size: contain;
+    height: 24px;
+    width: 24px;
+  }
+.ProfileCard {
+  background-color: rgb(94, 11, 21);
+  border: 2px solid rgb(208, 37, 37);
+  color: rgb(109, 174, 219);
+  min-width: 500px;
+  width: 26%;
+  border-radius: 12px;
+  padding: 10px;
+}
+
+.ProfileCard p, .ProfileCard h1, .ProfileCard button {
+  margin: 10px;
+}
+.ProfileCard button {
+  color: rgb(109, 174, 219);
+  background-image: url('/public/wall.jpg');
+  background-size: cover;
+  background-position: 50%;
+  border: 1px solid rgb(208, 37, 37);
+  padding: 5px;
+  border-radius: 5px;
+}
+
