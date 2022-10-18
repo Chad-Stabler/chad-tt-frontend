@@ -2,8 +2,8 @@
 import { get, post } from './request.js';
 
 
-export async function uploadVideo({ clip_link, users_id, o_site, title }) {
-  const newClip = await post(`${process.env.CLIP_URL}/users`).send({ clip_link, users_id, o_site, title });
+export async function uploadVideo({ clip_link, description, o_site, title }) {
+  const newClip = await post(`${process.env.CLIP_URL}/user`, { clip_link, description, o_site, title });
   return newClip;
 }
 
