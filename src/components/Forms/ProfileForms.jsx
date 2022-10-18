@@ -6,7 +6,7 @@ import { useState } from 'react';
 import { uploadVideo } from '../../services/fetch-utils.js';
 import styles from '../Auth/Auth.css';
 
-export default function ProfileCreateForm({ onSubmit }) {
+export default function ProfileCreateForm() {
   const [clip, setClip]  = useState({ clip_link: '', o_site: '', title: '', description: '' });
   const [details, handleChange] = useForm({
     clip_link: '',
@@ -26,9 +26,8 @@ export default function ProfileCreateForm({ onSubmit }) {
       details.clip_link = twitchFormat;
     }
     await uploadVideo(details);
-    
   };
- 
+
   return (
     <form className={styles.AuthForm} onSubmit={handleSubmit}>
       <h2>CREATE NEW VIDEO</h2>
@@ -53,7 +52,6 @@ export default function ProfileCreateForm({ onSubmit }) {
         label="description"
         name="description"
         type="text"
-        required
         onChange={handleChange}
       />}
       <InputController
