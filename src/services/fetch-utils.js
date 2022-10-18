@@ -18,3 +18,36 @@ export async function getUserData() {
   const user = await get(`${process.env.USER_URL}/me`);
   return user.data;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+export async function getAllUserData() {
+  const users = await get(`${process.env.USER_URL}`);
+  console.log(users.data);
+  return users.data;
+}
+
+export async function getAllVideos() {
+  const allClips = await get(`${process.env.USER_URL}`);
+  return allClips.data;
+}
+
