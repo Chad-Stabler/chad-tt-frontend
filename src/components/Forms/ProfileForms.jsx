@@ -26,7 +26,7 @@ export default function ProfileCreateForm({ onSubmit }) {
       console.log(twitchFormat);
       details.clip_link = twitchFormat;
     }
-    await uploadVideo(clip);
+    await uploadVideo(details);
   };
   // function useForm(formData) {
   //   const { getValue } = useForm();
