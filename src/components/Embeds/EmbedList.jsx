@@ -1,4 +1,4 @@
-import { getUserVideos } from '../../services/fetch-utils';
+import { getUserVideos, deleteVideo } from '../../services/fetch-utils';
 import { useState, useEffect } from 'react';
 import styles from './Embeds.css';
 import TwitchEmbed from './Twitch';
@@ -9,11 +9,16 @@ export default function EmbedList() {
 
   useEffect(() => {
     fetchVideos();
-  }, [setClips]);
+  }, []);
 
   async function fetchVideos() {
     const data = await getUserVideos();
     setClips(data);
+  }
+
+  async function deleteClip(clipId) {
+    await deleteVideo(clipId);
+    fetchVideos();
   }
 
 
@@ -26,7 +31,7 @@ export default function EmbedList() {
             : <TwitchEmbed URL={clip.clip_link}/>}
           <h1>{clip.title}</h1>
           <p>{clip.description || 'No description'}</p>
-          
+          <button onClick={() => deleteClip(clip.id)}>delete clip</button>
         </div>
         )
       }

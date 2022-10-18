@@ -1,5 +1,5 @@
 /* eslint-disable max-len */
-import { get, post } from './request.js';
+import { get, post, del } from './request.js';
 
 
 export async function uploadVideo({ clip_link, description, o_site, title }) {
@@ -10,6 +10,11 @@ export async function uploadVideo({ clip_link, description, o_site, title }) {
 export async function getUserVideos() {
   const clips = await get(`${process.env.CLIP_URL}/user`);
   return clips.data;
+}
+
+export async function deleteVideo(clipId) {
+  const deletedClip = await del(`${process.env.CLIP_URL}/${clipId}`);
+  return deletedClip.data;
 }
 
 
