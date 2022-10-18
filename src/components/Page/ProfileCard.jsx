@@ -21,7 +21,7 @@ export default function ProfileCard() {
   }, []);
 
   return <div className={styles.ProfileCard}>
-    <img src={userData.avatar_png || '/default.png'}/>
+    {/* <img src={userData.avatar_png || '/default.png'}/> */}
     <button>Upload your image</button>
     <h1>Gamertag: {userData.GamerTag}</h1>
     <p>Email: {userData.email}</p>
