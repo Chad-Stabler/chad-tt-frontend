@@ -28,8 +28,6 @@ export default function ProfileCreateForm() {
     await uploadVideo(details);
   };
 
-
-
   return (
     <form className={styles.AuthForm} onSubmit={handleSubmit}>
       <h2>CREATE NEW VIDEO</h2>
