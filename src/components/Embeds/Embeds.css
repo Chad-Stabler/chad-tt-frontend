@@ -34,7 +34,7 @@
     padding: 10px;
 }
 
-.ListCard button {
+.ListCard button, .EmbedCard button {
   color: rgb(109, 174, 219);
   background-image: url('/public/wall.jpg');
   background-size: cover;

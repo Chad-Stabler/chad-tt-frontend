@@ -16,6 +16,7 @@ export default function EmbedList() {
     setClips(data);
   }
 
+
   return <div className={styles.communityVid}>
     <div className={styles.EmbedList}>
       {
@@ -25,6 +26,10 @@ export default function EmbedList() {
             : <TwitchEmbed URL={clip.clip_link}/>}
           <h1>{clip.title}</h1>
           <p>{clip.description || 'No description'}</p>
+          <div>{clip.comments.length > 0 ? clip.comments.map((comment, i) => (
+            <p key={comment.id + i}>{comment.details}</p>)) 
+            : <p>No comments</p>}
+          </div>
           <button>Add new comment</button>
           <button>Up Vote</button>
           <button>Down Vote</button>
