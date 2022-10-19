@@ -76,6 +76,10 @@
     align-items: center;
 }
 
+.EmbedCard form input, .EmbedCard form label {
+    margin: 3px;
+  }
+
 .EmbedList {
     height: 750px;
     overflow: scroll;
