@@ -3,6 +3,7 @@ import ProfileUpdateForm from '../Forms/ProfileUpdateForm';
 import LogoUpdateForm from '../Forms/logoUpdateForm';
 import { useState, useEffect } from 'react';
 import styles from './Profile.css';
+import { useUser } from '../../state/UserContext';
 
 export default function ProfileCard() {
   const [userData, setUserData] = useState({
@@ -15,11 +16,14 @@ export default function ProfileCard() {
   });
   const [active, setActive] = useState(false);
   const [logoForm, setLogoForm] = useState(false);
+  const { setUser } = useUser();
 
   async function fetchUserData() {
     const data = await getUserData();
     setUserData(data);
+    setUser(data);
   }
+
 
   useEffect(() => {
     fetchUserData();

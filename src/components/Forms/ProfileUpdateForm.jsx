@@ -6,6 +6,7 @@ import { useState } from 'react';
 import { updateProfile } from '../../services/fetch-utils.js';
 import styles from '../Auth/Auth.css';
 
+
 export default function ProfileCreateForm({ fetchUser, setActive, userId }) {
   const [profile, setProfile]  = useState({ bio: '', platforms: '', channelLinks: '' });
   const [details, handleChange, reset] = useForm({

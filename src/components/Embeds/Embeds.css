@@ -34,7 +34,7 @@
     padding: 10px;
 }
 
-.ListCard button {
+.ListCard button, .EmbedCard button {
   color: rgb(109, 174, 219);
   background-image: url('/public/wall.jpg');
   background-size: cover;
@@ -42,6 +42,29 @@
   border: 1px solid rgb(208, 37, 37);
   padding: 5px;
   border-radius: 5px;
+}
+
+.communityVid .EmbedCard {
+    width: 60%;
+    min-width: 710px;
+    border-radius: 5px;
+    background-color: rgb(109, 174, 219);
+    color: rgb(12, 56, 97);
+    padding: 5px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.communityVid .EmbedCard div {
+    display: flex;
+    flex-direction: column;
+}
+
+.CommentSection img {
+    height: 24px;
+    width: 24px;
+    background-size: cover;
 }
 
 .EmbedCard {
