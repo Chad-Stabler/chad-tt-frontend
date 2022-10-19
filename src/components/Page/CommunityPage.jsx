@@ -1,4 +1,4 @@
-import CommunityEmbed from '../Embeds/EmbedList';
+import CommunityEmbed from '../Embeds/CommuntiyEmbeds';
 import styles from '../Page/CommunityCard';
 import CommunityCard from './CommunityCard';
 

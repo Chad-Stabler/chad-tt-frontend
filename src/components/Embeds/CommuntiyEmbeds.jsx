@@ -25,12 +25,12 @@ export default function EmbedList() {
             : <TwitchEmbed URL={clip.clip_link}/>}
           <h1>{clip.title}</h1>
           <p>{clip.description || 'No description'}</p>
+          <button>Add new comment</button>
+          <button>Up Vote</button>
+          <button>Down Vote</button>
         </div>
         )
       }
     </div>
-    <button>Add new comment</button>
-    <button>Up Vote</button>
-    <button>Down Vote</button>
   </div>;
 }

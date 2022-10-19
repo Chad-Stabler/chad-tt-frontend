@@ -35,31 +35,10 @@ export async function updateLogo(updateObj, user_id) {
   return update.data;
 }
 
-
 export async function getUserData() {
   const user = await get(`${process.env.USER_URL}/me`);
   return user.data;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 export async function getAllUserData() {
@@ -68,7 +47,7 @@ export async function getAllUserData() {
 }
 
 export async function getAllVideos() {
-  const allClips = await get(`${process.env.USER_URL}`);
+  const allClips = await get(`${process.env.CLIP_URL}`);
   return allClips.data;
 }
 
