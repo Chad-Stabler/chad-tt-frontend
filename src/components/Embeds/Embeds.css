@@ -44,6 +44,23 @@
   border-radius: 5px;
 }
 
+.communityVid .EmbedCard {
+    width: 60%;
+    min-width: 710px;
+    border-radius: 5px;
+    background-color: rgb(109, 174, 219);
+    color: rgb(12, 56, 97);
+    padding: 5px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.communityVid .EmbedCard div {
+    display: flex;
+    flex-direction: column;
+}
+
 .EmbedCard {
     width: 475px;
     border-radius: 5px;

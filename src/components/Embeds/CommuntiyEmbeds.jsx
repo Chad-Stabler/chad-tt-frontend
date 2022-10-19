@@ -24,15 +24,20 @@ export default function EmbedList() {
           key={clip.clip_link + i}>
           {clip.o_site === 'youtube' ? <YouTubeEmbed embedId={clip.clip_link}/> 
             : <TwitchEmbed URL={clip.clip_link}/>}
-          <h1>{clip.title}</h1>
-          <p>{clip.description || 'No description'}</p>
-          <div>{clip.comments.length > 0 ? clip.comments.map((comment, i) => (
-            <p key={comment.id + i}>{comment.details}</p>)) 
-            : <p>No comments</p>}
+          <div>
+            <h1>{clip.title}</h1>
+            <p>{clip.description || 'No description'}</p>
+            <div><h2>Comments:</h2>
+              {clip.comments.length > 0 ? clip.comments.map((comment, i) => (
+                <p key={comment.id + i}>{comment.details}</p>)) 
+                : <p>No comments</p>}
+            </div>
           </div>
-          <button>Add new comment</button>
-          <button>Up Vote</button>
-          <button>Down Vote</button>
+          <div>
+            <button>Add new comment</button>
+            <button>Up Vote</button>
+            <button>Down Vote</button>
+          </div>
         </div>
         )
       }
