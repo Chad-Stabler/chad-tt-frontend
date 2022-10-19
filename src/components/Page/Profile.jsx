@@ -21,7 +21,10 @@ export default function Profile() {
 
   return <section className={styles.ProfileCss}>
     <ProfileCard />
-    <EmbedList setActive={setActive} fetchVideos={fetchVideos} clips={clips} />
+    <EmbedList 
+      active={active} setActive={setActive} 
+      fetchVideos={fetchVideos} clips={clips} 
+    />
     <div className={active ? styles.on : styles.off}>
       <ProfileForms setActive={setActive} fetchVideos={fetchVideos} />
     </div>
