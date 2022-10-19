@@ -23,6 +23,11 @@ export async function updateVideo(updateObj, clipId) {
   return update.data;
 }
 
+export async function updateProfile(updateObj, user_id) {
+  const update = await put(`${process.env.USER_URL}/${user_id}`, updateObj);
+
+  return update.data;
+}
 
 
 export async function getUserData() {
