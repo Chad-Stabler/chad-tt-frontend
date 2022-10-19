@@ -35,7 +35,7 @@
 }
 
 .ListCard button {
-    color: rgb(109, 174, 219);
+  color: rgb(109, 174, 219);
   background-image: url('/public/wall.jpg');
   background-size: cover;
   background-position: 50%;

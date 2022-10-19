@@ -29,6 +29,12 @@ export async function updateProfile(updateObj, user_id) {
   return update.data;
 }
 
+export async function updateLogo(updateObj, user_id) {
+  const update = await put(`${process.env.USER_URL}/logo/${user_id}`, updateObj);
+
+  return update.data;
+}
+
 
 export async function getUserData() {
   const user = await get(`${process.env.USER_URL}/me`);
@@ -58,7 +64,6 @@ export async function getUserData() {
 
 export async function getAllUserData() {
   const users = await get(`${process.env.USER_URL}`);
-  console.log(users.data);
   return users.data;
 }
 

@@ -8,7 +8,7 @@ import styles from '../Auth/Auth.css';
 
 export default function ProfileCreateForm({ fetchUser, setActive, userId }) {
   const [profile, setProfile]  = useState({ bio: '', platforms: '', channelLinks: '' });
-  const [details, handleChange] = useForm({
+  const [details, handleChange, reset] = useForm({
     bio: '', platforms: '', channelLinks: '' 
   });
   
@@ -17,6 +17,7 @@ export default function ProfileCreateForm({ fetchUser, setActive, userId }) {
     await updateProfile(details, userId);
     fetchUser();
     setActive(false);
+    reset();
   };
 
   return (
@@ -27,6 +28,7 @@ export default function ProfileCreateForm({ fetchUser, setActive, userId }) {
         label="Bio"
         name="bio"
         type="text"
+        value={details.bio}
         onChange={handleChange}
       />
 
@@ -34,6 +36,7 @@ export default function ProfileCreateForm({ fetchUser, setActive, userId }) {
         label="Platforms"
         name="platforms"
         type="text" 
+        value={details.platforms}
         onChange={handleChange}
       />
 
@@ -41,6 +44,7 @@ export default function ProfileCreateForm({ fetchUser, setActive, userId }) {
         label="Channel Links"
         name="channelLinks"
         type="text"
+        value={details.channelLinks}
         onChange={handleChange}
       />
 

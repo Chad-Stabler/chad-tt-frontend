@@ -1,5 +1,6 @@
 import { getUserData } from '../../services/fetch-utils';
 import ProfileUpdateForm from '../Forms/ProfileUpdateForm';
+import LogoUpdateForm from '../Forms/logoUpdateForm';
 import { useState, useEffect } from 'react';
 import styles from './Profile.css';
 
@@ -13,6 +14,7 @@ export default function ProfileCard() {
     avatar_png: ''
   });
   const [active, setActive] = useState(false);
+  const [logoForm, setLogoForm] = useState(false);
 
   async function fetchUserData() {
     const data = await getUserData();
@@ -24,11 +26,20 @@ export default function ProfileCard() {
   }, []);
   
   function handleActive() {
-    setActive(true);
+    setActive(!active);
   }
+
+  function handleLogoForm() {
+    setLogoForm(!logoForm);
+  }
+
   return <div className={styles.ProfileCard}>
     <img src={userData.avatar_png || '/default.png'}/>
-    <button>Upload your image</button>
+    <button onClick={handleLogoForm}>Pick your profile logo</button>
+    <div className={logoForm ? styles.on : styles.off}>
+      <LogoUpdateForm fetchUser={fetchUserData} 
+        setLogoForm={setLogoForm} userId={userData.id}/>
+    </div>
     <h1>Gamertag: {userData.GamerTag}</h1>
     <p>Email: {userData.email}</p>
     <p>Bio: {userData.bio}</p>

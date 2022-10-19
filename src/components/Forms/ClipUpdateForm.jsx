@@ -8,7 +8,7 @@ import styles from '../Auth/Auth.css';
 
 export default function ClipUpdateForm({ fetchVideos, setActive, clipId }) {
   const [clip, setClip]  = useState({ title: '', description: '' });
-  const [details, handleChange] = useForm({
+  const [details, handleChange, reset] = useForm({
     title: '',
     description: ''
   });
@@ -18,6 +18,7 @@ export default function ClipUpdateForm({ fetchVideos, setActive, clipId }) {
     await updateVideo(details, clipId);
     fetchVideos();
     setActive(false);
+    reset();
   };
 
 
@@ -29,6 +30,7 @@ export default function ClipUpdateForm({ fetchVideos, setActive, clipId }) {
         label="title"
         name="title"
         type="text"
+        value={details.title}
         required
         onChange={handleChange}
       />
@@ -36,6 +38,7 @@ export default function ClipUpdateForm({ fetchVideos, setActive, clipId }) {
         label="description"
         name="description"
         type="text"
+        value={details.description}
         onChange={handleChange}
       />}
 

@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 import styles from './Embeds.css';
 import EmbedCard from './EmbedCard';
 
-export default function EmbedList({ setActive, fetchVideos, clips }) {
+export default function EmbedList({ active, setActive, fetchVideos, clips }) {
 
   useEffect(() => {
     fetchVideos();
@@ -16,7 +16,7 @@ export default function EmbedList({ setActive, fetchVideos, clips }) {
   }
   
   function handleActive() {
-    setActive(true);
+    setActive(!active);
   }
   return <div className={styles.ListCard}>
     <div className={styles.EmbedList}>
