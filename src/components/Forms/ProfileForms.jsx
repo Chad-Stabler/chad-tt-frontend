@@ -6,7 +6,7 @@ import { useState } from 'react';
 import { uploadVideo } from '../../services/fetch-utils.js';
 import styles from '../Auth/Auth.css';
 
-export default function ProfileCreateForm() {
+export default function ProfileCreateForm({ setActive, fetchVideos }) {
   const [clip, setClip]  = useState({ clip_link: '', o_site: '', title: '', description: '' });
   const [details, handleChange] = useForm({
     clip_link: '',
@@ -26,6 +26,8 @@ export default function ProfileCreateForm() {
       details.clip_link = twitchFormat;
     }
     await uploadVideo(details);
+    fetchVideos();
+    setActive(false);
   };
 
   return (
