@@ -40,6 +40,11 @@ export async function getUserData() {
   return user.data;
 }
 
+export async function getCommenterData(id) {
+  const user = await get(`${process.env.USER_URL}/${id}`);
+
+  return user.data;
+}
 
 export async function getAllUserData() {
   const users = await get(`${process.env.USER_URL}`);
@@ -51,3 +56,8 @@ export async function getAllVideos() {
   return allClips.data;
 }
 
+export async function postComment(obj) {
+  const comment = await post(`${process.env.CLIP_URL}/comment`, obj);
+
+  return comment.data;
+}
