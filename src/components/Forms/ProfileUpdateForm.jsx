@@ -23,7 +23,7 @@ export default function ProfileCreateForm({ fetchUser, setActive, userId }) {
 
   return (
     <form className={styles.AuthForm} onSubmit={handleSubmit}>
-      <h2>Update your info</h2>
+      <h1>Update your info</h1>
       
       <InputController
         label="Bio"

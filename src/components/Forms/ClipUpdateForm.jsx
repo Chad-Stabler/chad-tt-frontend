@@ -25,7 +25,7 @@ export default function ClipUpdateForm({ fetchVideos, setActive, clipId }) {
 
   return (
     <form className={styles.AuthForm} onSubmit={handleSubmit}>
-      <h2>Update details</h2>
+      <h1>Update details</h1>
       <InputController
         label="title"
         name="title"

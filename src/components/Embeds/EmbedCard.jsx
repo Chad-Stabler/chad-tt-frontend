@@ -9,7 +9,7 @@ export default function EmbedCard({ clip, deleteClip, fetchVideos }) {
   const [active, setActive] = useState(false);
 
   function handleActive() {
-    setActive(true);
+    setActive(!active);
   }
 
   return (

@@ -36,7 +36,7 @@ export default function ProfileCreateForm({ setActive, fetchVideos }) {
 
   return (
     <form className={styles.AuthForm} onSubmit={handleSubmit}>
-      <h2>Create new clip</h2>
+      <h1>Create new clip</h1>
       <label>
             Stream Service
         <select required value={details.o_site} onChange={handleChange} name="o_site" label="o_site">
@@ -48,7 +48,7 @@ export default function ProfileCreateForm({ setActive, fetchVideos }) {
         </select>
       </label>
       <InputController
-        label="title"
+        label="Title"
         name="title"
         type="text"
         value={details.title}
@@ -56,14 +56,14 @@ export default function ProfileCreateForm({ setActive, fetchVideos }) {
         onChange={handleChange}
       />
       {<InputController
-        label="description"
+        label="Description"
         name="description"
         type="text"
         value={details.description}
         onChange={handleChange}
       />}
       <InputController
-        label="clip link"
+        label="Clip link"
         name="clip_link"
         type="text"
         value={details.clip_link}
