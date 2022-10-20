@@ -9,3 +9,14 @@
     flex-wrap: nowrap;
 
 }
+
+.AuthForm h1, .AuthForm label {
+    margin: 3px;
+}
+.AuthForm h1 {
+    font-weight: bold;
+}
+
+.AuthForm select {
+    margin-left: 5px;
+}

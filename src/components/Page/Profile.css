@@ -16,14 +16,15 @@
   }
 
 .ProfileCss div {
-  margin: 7.5px;
+  margin: 30px;
 }
 
 .ProfileCard img {
     margin-right: 10px;
     background-size: contain;
-    height: 24px;
-    width: 24px;
+    height: 35px;
+    border-radius: 50%;
+    width: 35px;
   }
 .ProfileCard {
   background-color: rgb(94, 11, 21);
@@ -57,6 +58,12 @@
 .ProfileCard p, .ProfileCard h1, .ProfileCard button {
   margin: 10px;
 }
+
+.ProfileCard h1 {
+font-size: large;
+font-weight: bold;
+}
+
 .ProfileCard button {
   color: rgb(109, 174, 219);
   background-image: url('/public/wall.jpg');
@@ -89,6 +96,7 @@
   background-position: 50%;
   border: 1px solid rgb(208, 37, 37);
   padding: 5px;
+  height: fit-content;
   border-radius: 5px;
 }
 

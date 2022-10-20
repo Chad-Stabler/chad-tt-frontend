@@ -1,6 +1,5 @@
 .LabelText {
-    color: var(--caption-color);
-    font-family: var(--label-font);
+    color: rgb(109, 174, 219);
     font-size: 0.9em;
   
     &.Required::after {
