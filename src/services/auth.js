@@ -1,6 +1,6 @@
 import { del, get, post } from './request.js';
 
-const URL = 'http://localhost:7890/api/v1/users';
+const URL = process.env.USER_URL;
 //this is where the routes need to match with the BE 'aka api/v1/users
 
 
