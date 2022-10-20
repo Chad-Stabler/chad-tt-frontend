@@ -1,6 +1,6 @@
 import { getAllUserData } from '../../services/fetch-utils';
 import { useState, useEffect } from 'react';
-import styles from './CommunityPage.css';
+import styles from './communityPage.css';
 
 export default function CommunityCard() {
   const [usersData, setUsersData] = useState([]);

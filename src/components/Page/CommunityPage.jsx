@@ -1,5 +1,5 @@
 import CommunityEmbed from '../Embeds/CommuntiyEmbeds';
-import styles from './CommunityPage.css';
+import styles from './communityPage.css';
 import CommunityCard from './CommunityCard';
 
 
