@@ -5,16 +5,31 @@ import styles from './Embeds.css';
 import CommentForm from '../Forms/CommentForm';
 import { useState } from 'react';
 import { useUser } from '../../state/UserContext';
+import { addUpvote } from '../../services/fetch-utils';
 
 
 export default function CommunityEmbed({ clip, allVideos }) {
   const [active, setActive] = useState(false);
   const { user } = useUser();
+  let up_votes = 0;
+  let down_votes = 0;
+
+  if (clip.votes) {
+    clip.votes.forEach(vote => {
+      vote.vote_up ? up_votes += 1 : down_votes += 1;
+    });
+  } 
 
   function handleActive() {
     setActive(!active);
   }
+  
+  
 
+  async function handleUpvote() {
+    await addUpvote(clip.id, user.id);
+    await allVideos();
+  }
   return (
     <div className={styles.EmbedCard}>
       {clip.o_site === 'youtube' ? <YouTubeEmbed embedId={clip.clip_link}/> 
@@ -29,6 +44,7 @@ export default function CommunityEmbed({ clip, allVideos }) {
             : <p>No comments</p>}
         </div>
       </div>
+      <p>Up votes: {up_votes}</p>
       <div className={styles.Buttons}>
         <button onClick={handleActive}>Add new comment</button>
         <div className={active ? styles.on : styles.off}>
@@ -38,7 +54,7 @@ export default function CommunityEmbed({ clip, allVideos }) {
             clipId={clip.id}
             userId={user.id} />
         </div>
-        <button>Up Vote</button>
+        <button onClick={async () => await handleUpvote()}>Up Vote</button>
         <button>Down Vote</button>
       </div>
     </div>

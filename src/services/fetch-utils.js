@@ -61,3 +61,15 @@ export async function postComment(obj) {
 
   return comment.data;
 }
+
+export async function addUpvote(clipId, userId) {
+  const upVote = {
+    vote_up: true,
+    clip_id: clipId,
+    voter_id: userId
+  };
+
+  const vote = await post(`${process.env.CLIP_URL}/vote`, upVote);
+
+  return vote.data;
+}
