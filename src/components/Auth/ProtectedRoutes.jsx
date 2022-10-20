@@ -3,7 +3,6 @@ import { useUser } from '../../state/UserContext.jsx';
 
 export default function ProtectedRoute() {
   const { user } = useUser();
-  console.log(user);
   if (!user) return <Navigate to="signin" />;
   return <Outlet />;
 }

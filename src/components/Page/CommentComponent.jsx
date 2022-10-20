@@ -17,7 +17,8 @@ export default function CommentMap({ comment }) {
   }, []);
 
   return (
-    <div className={styles.CommentSection}><img src={commenter.avatar_png} />
-      <p>{commenter.GamerTag} says {comment.details}</p></div>
+    <div className={styles.CommentSection}>
+      <img src={commenter.avatar_png || 'default.png'}/>
+      <p><span>{commenter.GamerTag}</span> says {comment.details}</p></div>
   );
 }

@@ -14,14 +14,13 @@ export default function CommunityCard() {
   }, []);
 
   return <div className={styles.CommunityPage}>
-    <div className={styles.CommunityPage}>
-      {
-        usersData.map((userData, i) => 
-          <div className={styles.CommunityPage}
-            key={userData.GamerTag + i}>
-            <p>{userData.platforms}</p>
-          </div>
-        )}
-    </div>
+    {
+      usersData.map((userData, i) => 
+        <div className={styles.UserData}
+          key={userData.GamerTag + i}>
+          <p>{userData.GamerTag}</p>
+          <p>{userData.platforms}</p>
+        </div>
+      )}
   </div>;
 }
