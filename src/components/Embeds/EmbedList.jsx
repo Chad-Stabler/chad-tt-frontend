@@ -18,6 +18,10 @@ export default function EmbedList({ active, setActive, fetchVideos, clips }) {
   function handleActive() {
     setActive(!active);
   }
+
+  if (!clips) return <div className={styles.ListCard}>
+    Hmm, you dont have any clips yet.</div>;
+
   return <div className={styles.ListCard}>
     <div className={styles.EmbedList}>
       {
