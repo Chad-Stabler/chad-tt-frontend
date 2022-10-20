@@ -26,10 +26,10 @@ export default function App() {
               <Route path="community" element={<Community />}/>
               
               <Route path="profile" element={<Profile />}/>
-              {/* <Route path="/" element={<Profile />}/> */}
+              <Route path="/" element={<Profile />}/>
             </Route> 
     
-            <Route path="*" element={<Navigate to="/profile" replace />} />
+            <Route path="*" element={<Navigate to="/" replace />} />
           </Route>
         </Routes>
       
