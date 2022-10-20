@@ -5,7 +5,7 @@ import styles from './Embeds.css';
 import CommentForm from '../Forms/CommentForm';
 import { useState } from 'react';
 import { useUser } from '../../state/UserContext';
-import { addUpvote } from '../../services/fetch-utils';
+import { addDownvote, addUpvote } from '../../services/fetch-utils';
 
 
 export default function CommunityEmbed({ clip, allVideos }) {
@@ -23,8 +23,11 @@ export default function CommunityEmbed({ clip, allVideos }) {
   function handleActive() {
     setActive(!active);
   }
-  
-  
+
+  async function handleDownvote() {
+    await addDownvote(clip.id, user.id);
+    await allVideos();
+  }
 
   async function handleUpvote() {
     await addUpvote(clip.id, user.id);
@@ -44,7 +47,10 @@ export default function CommunityEmbed({ clip, allVideos }) {
             : <p>No comments</p>}
         </div>
       </div>
-      <p>Up votes: {up_votes}</p>
+      <div>
+        <p>Up votes: {up_votes}</p>
+        <p>Down votes: {down_votes}</p>
+      </div>
       <div className={styles.Buttons}>
         <button onClick={handleActive}>Add new comment</button>
         <div className={active ? styles.on : styles.off}>
@@ -55,7 +61,7 @@ export default function CommunityEmbed({ clip, allVideos }) {
             userId={user.id} />
         </div>
         <button onClick={async () => await handleUpvote()}>Up Vote</button>
-        <button>Down Vote</button>
+        <button onClick={async () => await handleDownvote()}>Down Vote</button>
       </div>
     </div>
   );

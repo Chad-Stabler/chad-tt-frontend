@@ -73,3 +73,14 @@ export async function addUpvote(clipId, userId) {
 
   return vote.data;
 }
+export async function addDownvote(clipId, userId) {
+  const upVote = {
+    vote_up: false,
+    clip_id: clipId,
+    voter_id: userId
+  };
+
+  const vote = await post(`${process.env.CLIP_URL}/vote`, upVote);
+
+  return vote.data;
+}
