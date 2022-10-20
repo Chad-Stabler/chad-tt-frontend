@@ -22,14 +22,14 @@ export default function App() {
           <Route path="/" element={<Layout />}>
             <Route path="signin" element={<AuthForm mode="signin" />} />
             <Route path="signup" element={<AuthForm mode="signup" />} />
-            <Route element={<ProtectedRoute/>}>
+            <Route element={<ProtectedRoute />}>
               <Route path="community" element={<Community />}/>
               
               <Route path="profile" element={<Profile />}/>
-              <Route path="/" element={<Profile />}/>
+              {/* <Route path="/" element={<Profile />}/> */}
             </Route> 
     
-            <Route path="*" element={<Navigate to="/" replace />} />
+            <Route path="*" element={<Navigate to="/profile" replace />} />
           </Route>
         </Routes>
       

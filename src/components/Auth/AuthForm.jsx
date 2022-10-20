@@ -6,7 +6,7 @@ import { useForm } from '../Forms/useForm.js';
 import styles from './AuthForm.css';
 
 export default function AuthForm({ mode = 'signin' }) {
-  const user = useUser();
+  const { user } = useUser();
   const { signUp, signIn, error } = useAuth();
   const [credentials, handleChange] = useForm({
     email: '',

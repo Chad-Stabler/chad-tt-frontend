@@ -2,7 +2,8 @@ import { Navigate, Outlet } from 'react-router-dom';
 import { useUser } from '../../state/UserContext.jsx';
 
 export default function ProtectedRoute() {
-  const user = useUser();
+  const { user } = useUser();
+  console.log(user);
   if (!user) return <Navigate to="signin" />;
   return <Outlet />;
 }
