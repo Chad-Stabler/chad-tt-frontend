@@ -61,18 +61,44 @@
 .communityVid .EmbedCard div {
     display: flex;
     flex-direction: column;
+    overflow: wrap;
 }
 
 .communityVid .EmbedCard .ClipInfo {
-    height: 100%;
-    overflow: scroll;
-    width: 30%;
+    height: 300px;
+    width: 300px;
+    max-width: 300px;
+    overflow: wrap;
+    overflow-wrap: break-word;
+    overflow-y: scroll;
 }
 
-.CommentSection img {
-    height: 100px;
-    width: 100px;
+.communityVid .EmbedCard {
+    margin: 8px;
+    padding: 5px;
+}
+
+.communityVid .EmbedCard .ClipInfo img {
+    height: 24px;
+    width: 24px;
+    border-radius: 50%;
     background-size: cover;
+}
+
+.communityVid .EmbedCard .ClipInfo h1 {
+    font-weight: bold;
+}
+
+.communityVid .EmbedCard .ClipInfo span {
+    font-style: italic;
+    font-weight: 550;
+}
+
+.communityVid .EmbedCard .ClipInfo .CommentSection {
+    background-color: rgb(240, 211, 247);
+    border: 1px solid rgb(12, 56, 97);
+    padding: 3px;
+    margin: 3px;
 }
 
 .EmbedCard {
@@ -84,6 +110,15 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.EmbedCard p, .EmbedCard button, .EmbedCard div, .EmbedCard h1 {
+    margin: 3px;
+}
+
+.EmbedCard p {
+    width: 200px;
+    overflow: scroll;
 }
 
 .EmbedCard .YouTubeEmbed, .EmbedCard .TwitchEmbed {

@@ -21,8 +21,9 @@ export default function CommunityEmbed({ clip, allVideos }) {
         : <TwitchEmbed URL={clip.clip_link}/>}
       <div className={styles.ClipInfo}>
         <h1>{clip.title}</h1>
-        <p>{clip.description || 'No description'}</p>
-        <div><h2>Comments:</h2>
+        <div className={styles.ClipDesc}>{clip.description 
+        || 'No description'}</div>
+        <div><h1>Comments:</h1>
           {clip.comments.length > 0 ? clip.comments.map((comment, i) => 
             <CommentComponent key={clip.comment + i} comment={comment}/>) 
             : <p>No comments</p>}

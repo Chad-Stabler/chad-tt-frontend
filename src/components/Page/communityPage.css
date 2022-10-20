@@ -38,6 +38,9 @@
 .CommunityCard p, .CommunityCard h1, .CommunityCard button {
   margin: 10px;
 }
+
+
+
 .CommunityCard button {
   color: rgb(109, 174, 219);
   background-image: url('/public/wall.jpg');
