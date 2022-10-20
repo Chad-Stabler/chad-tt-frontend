@@ -47,15 +47,15 @@
 }
 
 .communityVid .EmbedCard {
-    width: 60%;
-    min-width: 710px;
+    width: 98%;
+    min-width: 910px;
     border-radius: 5px;
     background-color: rgb(109, 174, 219);
     color: rgb(12, 56, 97);
     padding: 5px;
     display: flex;
     flex-direction: row;
-    align-items: center;
+    justify-content: space-between;
 }
 
 .communityVid .EmbedCard div {
@@ -63,9 +63,15 @@
     flex-direction: column;
 }
 
+.communityVid .EmbedCard .ClipInfo {
+    height: 100%;
+    overflow: scroll;
+    width: 30%;
+}
+
 .CommentSection img {
-    height: 24px;
-    width: 24px;
+    height: 100px;
+    width: 100px;
     background-size: cover;
 }
 

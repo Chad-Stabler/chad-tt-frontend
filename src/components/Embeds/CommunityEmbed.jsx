@@ -19,7 +19,7 @@ export default function CommunityEmbed({ clip, allVideos }) {
     <div className={styles.EmbedCard}>
       {clip.o_site === 'youtube' ? <YouTubeEmbed embedId={clip.clip_link}/> 
         : <TwitchEmbed URL={clip.clip_link}/>}
-      <div>
+      <div className={styles.ClipInfo}>
         <h1>{clip.title}</h1>
         <p>{clip.description || 'No description'}</p>
         <div><h2>Comments:</h2>

@@ -25,12 +25,12 @@
     height: 5px;
     width: 5px;
   }
+
 .CommunityCard {
   background-color: rgb(94, 11, 21);
   border: 2px solid rgb(208, 37, 37);
   color: rgb(109, 174, 219);
-  min-width: 500px;
-  width: 15%;
+  width: fit-content;
   border-radius: 12px;
   padding: 10px;
 }
