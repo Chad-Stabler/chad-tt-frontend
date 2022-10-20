@@ -10,7 +10,7 @@ import Layout from './components/Page/Layout.jsx';
 import AuthForm from './components/Auth/AuthForm.jsx';
 import UserProvider from './state/UserContext.jsx';
 
-import ProtectedRoute from './components/Auth/protectedRoutes.jsx';
+import ProtectedRoute from './components/Auth/ProtectedRoutes.jsx';
 import Community from './components/Page/CommunityPage';
   
 export default function App() {
