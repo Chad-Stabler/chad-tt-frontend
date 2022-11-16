@@ -6,6 +6,7 @@ import {
 } from 'react-router-dom';
 import Profile from './components/Page/Profile.jsx';
 import Layout from './components/Page/Layout.jsx';
+import UserPage from './components/Page/UserPage';
 // import Users from './components/Users/Users.jsx';
 import AuthForm from './components/Auth/AuthForm.jsx';
 import UserProvider from './state/UserContext.jsx';
@@ -24,7 +25,7 @@ export default function App() {
             <Route path="signup" element={<AuthForm mode="signup" />} />
             <Route element={<ProtectedRoute />}>
               <Route path="community" element={<Community />}/>
-              
+              <Route path="user/:id" element={<UserPage />}/>
               <Route path="profile" element={<Profile />}/>
               <Route path="/" element={<Profile />}/>
             </Route> 
