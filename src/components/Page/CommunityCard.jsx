@@ -18,6 +18,7 @@ export default function CommunityCard() {
       usersData.map((userData, i) => 
         <div className={styles.UserData}
           key={userData.GamerTag + i}>
+          <img src={`${userData.avatar_png}`}/>
           <p>{userData.GamerTag}</p>
           <p>{userData.platforms}</p>
         </div>

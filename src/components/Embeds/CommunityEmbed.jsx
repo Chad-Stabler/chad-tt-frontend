@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import TwitchEmbed from './Twitch';
 import YouTubeEmbed from './YouTube';
 import CommentComponent from '../Page/CommentComponent';
@@ -51,18 +52,20 @@ export default function CommunityEmbed({ clip, allVideos }) {
         <p>Up votes: {up_votes}</p>
         <p>Down votes: {down_votes}</p>
       </div>
-      <div className={styles.Buttons}>
-        <button onClick={handleActive}>Add new comment</button>
-        <div className={active ? styles.on : styles.off}>
-          <CommentForm 
-            setActive={setActive} 
-            fetchVideos={allVideos} 
-            clipId={clip.id}
-            userId={user.id} />
-        </div>
-        <button onClick={async () => await handleUpvote()}>Up Vote</button>
-        <button onClick={async () => await handleDownvote()}>Down Vote</button>
-      </div>
+      {
+        clip.users_id !== user.id ? <div className={styles.Buttons}>
+          <button onClick={handleActive}>Add new comment</button>
+          <div className={active ? styles.on : styles.off}>
+            <CommentForm 
+              setActive={setActive} 
+              fetchVideos={allVideos} 
+              clipId={clip.id}
+              userId={user.id} />
+          </div>
+          <button onClick={async () => await handleUpvote()}>Up Vote</button>
+          <button onClick={async () => await handleDownvote()}>Down Vote</button>
+        </div> : <></>
+      }
     </div>
   );
 }
