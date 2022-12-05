@@ -11,12 +11,12 @@ import { useUser } from '../../state/UserContext';
 
 
 export default function Profile() {
-  const user = useUser();
+  const { user } = useUser();
   const [active, setActive] = useState(false);
   const [clips, setClips] = useState([]);
 
   async function fetchVideos() {
-    const data = await getUserVideos(user.user.id);
+    const data = await getUserVideos(user.id);
     setClips(data);
   }
 

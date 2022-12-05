@@ -111,3 +111,15 @@ redirect routes
   //   }));
   //   return [data, handleChange];
   // };
+
+  // if (details.o_site === 'youtube') {
+    //   const vidId = details.clip_link.split('v=')[1];
+    //   details.clip_link = vidId;
+    // } else if (details.o_site === 'twitch') {
+    //   const vidId = details.clip_link.split('clip/')[1];
+    //   const twitchFormat = `https://clips.twitch.tv/embed?clip=${vidId}`;
+    //   details.clip_link = twitchFormat;
+    // } else {
+    //   setError('Something went wrong creating the clip, please try again');
+    //   return;
+    // }

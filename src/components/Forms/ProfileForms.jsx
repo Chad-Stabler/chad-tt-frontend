@@ -9,7 +9,7 @@ import { useUser } from '../../state/UserContext.jsx';
 
 export default function ProfileCreateForm({ setActive, fetchVideos }) {
   const [error, setError] = useState('');
-  const user = useUser();
+  const { user } = useUser();
   const [details, handleChange, reset] = useForm({
     clip_link: '',
     title: '',
@@ -19,16 +19,29 @@ export default function ProfileCreateForm({ setActive, fetchVideos }) {
   
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (details.o_site === 'youtube') {
-      const vidId = details.clip_link.split('v=')[1];
-      details.clip_link = vidId;
-    } else if (details.o_site === 'twitch') {
-      const vidId = details.clip_link.split('clip/')[1];
-      const twitchFormat = `https://clips.twitch.tv/embed?clip=${vidId}`;
-      details.clip_link = twitchFormat;
-    } else {
-      setError('Something went wrong creating the clip, please try again');
-      return;
+    switch(details.o_site) {
+      case 'youtube' :
+        {
+          const vidId = details.clip_link.split('v=')[1];
+          details.clip_link = vidId;
+        }
+        break;
+      case 'twitch' :
+        {
+          const vidId = details.clip_link.split('clip/')[1];
+          const twitchFormat = `https://clips.twitch.tv/embed?clip=${vidId}`;
+          details.clip_link = twitchFormat;
+        }
+        break;
+      case 'medal' :
+        {
+          const vidId = details.clip_link.split('clips/')[1];
+          details.clip_link = `https://medal.tv/clip/${vidId}`;
+        }
+        break;
+      default:
+        setError('Something went wrong creating the clip, please try again');
+        return;
     }
     await uploadVideo(details, user.id);
     fetchVideos();
@@ -47,6 +60,7 @@ export default function ProfileCreateForm({ setActive, fetchVideos }) {
           </option>
           <option value="youtube">YouTube</option>
           <option value="twitch">Twitch</option>
+          <option value="medal">Medal</option>
         </select>
       </label>
       <InputController

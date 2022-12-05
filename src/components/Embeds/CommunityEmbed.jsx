@@ -7,6 +7,7 @@ import CommentForm from '../Forms/CommentForm';
 import { useState } from 'react';
 import { useUser } from '../../state/UserContext';
 import { addDownvote, addUpvote } from '../../services/fetch-utils';
+import MedalEmbed from './MedalEmbed';
 
 
 export default function CommunityEmbed({ clip, allVideos }) {
@@ -36,8 +37,15 @@ export default function CommunityEmbed({ clip, allVideos }) {
   }
   return (
     <div className={styles.EmbedCard}>
-      {clip.o_site === 'youtube' ? <YouTubeEmbed embedId={clip.clip_link}/> 
-        : <TwitchEmbed URL={clip.clip_link}/>}
+      {
+        clip.o_site === 'youtube' && <YouTubeEmbed embedId={clip.clip_link}/>
+      }
+      {
+        clip.o_site === 'twitch' && <TwitchEmbed URL={clip.clip_link}/>
+      }
+      {
+        clip.o_site === 'medal' && <MedalEmbed URL={clip.clip_link}/>
+      }
       <div className={styles.ClipInfo}>
         <h1>{clip.title}</h1>
         <div className={styles.ClipDesc}>{clip.description 
