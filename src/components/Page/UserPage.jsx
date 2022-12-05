@@ -7,7 +7,7 @@ import { getUserVideos } from '../../services/fetch-utils';
 
 
 
-export default function Profile() {
+export default function UserPage() {
   const [clips, setClips] = useState([]);
 
   async function fetchVideos() {

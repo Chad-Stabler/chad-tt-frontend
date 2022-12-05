@@ -2,13 +2,13 @@
 import { get, post, del, put } from './request.js';
 
 
-export async function uploadVideo({ clip_link, description, o_site, title }) {
-  const newClip = await post(`${process.env.CLIP_URL}/user`, { clip_link, description, o_site, title });
+export async function uploadVideo({ clip_link, description, o_site, title }, id) {
+  const newClip = await post(`${process.env.CLIP_URL}/user/${id}`, { clip_link, description, o_site, title });
   return newClip;
 }
 
-export async function getUserVideos() {
-  const clips = await get(`${process.env.CLIP_URL}/user`);
+export async function getUserVideos(id) {
+  const clips = await get(`${process.env.CLIP_URL}/user/${id}`);
   return clips.data;
 }
 

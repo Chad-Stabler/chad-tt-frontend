@@ -5,9 +5,11 @@ import { useForm } from './useForm.js';
 import { uploadVideo } from '../../services/fetch-utils.js';
 import styles from '../Auth/Auth.css';
 import { useState } from 'react';
+import { useUser } from '../../state/UserContext.jsx';
 
 export default function ProfileCreateForm({ setActive, fetchVideos }) {
   const [error, setError] = useState('');
+  const user = useUser();
   const [details, handleChange, reset] = useForm({
     clip_link: '',
     title: '',
@@ -28,7 +30,7 @@ export default function ProfileCreateForm({ setActive, fetchVideos }) {
       setError('Something went wrong creating the clip, please try again');
       return;
     }
-    await uploadVideo(details);
+    await uploadVideo(details, user.id);
     fetchVideos();
     reset();
     setActive(false);
