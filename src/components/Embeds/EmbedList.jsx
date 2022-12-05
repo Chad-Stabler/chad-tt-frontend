@@ -3,7 +3,8 @@ import { useEffect } from 'react';
 import styles from './Embeds.css';
 import EmbedCard from './EmbedCard';
 
-export default function EmbedList({ active, setActive, fetchVideos, clips }) {
+export default function EmbedList({ active, setActive, fetchVideos, 
+  clips, currUser }) {
 
   useEffect(() => {
     fetchVideos();
@@ -33,7 +34,7 @@ export default function EmbedList({ active, setActive, fetchVideos, clips }) {
         )
       }
     </div>
-    <button onClick={handleActive}>Add new clip</button>
+    {currUser && <button onClick={handleActive}>Add new clip</button>}
   </div>;
 }
 

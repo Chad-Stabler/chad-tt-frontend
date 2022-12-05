@@ -25,7 +25,7 @@ export default function App() {
             <Route path="signup" element={<AuthForm mode="signup" />} />
             <Route element={<ProtectedRoute />}>
               <Route path="community" element={<Community />}/>
-              <Route path="user/:id" element={<UserPage />}/>
+              <Route path="gamer/:id" element={<UserPage id={2}/>}/>
               <Route path="profile" element={<Profile />}/>
               <Route path="/" element={<Profile />}/>
             </Route> 

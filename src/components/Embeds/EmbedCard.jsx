@@ -21,7 +21,7 @@ export default function EmbedCard({ clip, deleteClip, fetchVideos }) {
       <h1>{clip.title}</h1>
       <p>{clip.description || 'No description'}</p>
       {
-        clip.users_id === user.id ? <div>
+        clip.users_id === user.user.id ? <div>
           <button onClick={() => deleteClip(clip.id)}>Delete clip</button>
           <button onClick={handleActive}>
               Update Title/description

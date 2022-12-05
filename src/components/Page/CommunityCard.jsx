@@ -19,15 +19,13 @@ export default function CommunityCard() {
   return <div className={styles.CommunityPage}>
     {
       usersData.map((userData, i) =>
-        user.id !== userData.id ?
-          <NavLink to={`user/${userData.id}`} className={styles.UserData}
+        user.id !== userData.id &&
+          <NavLink to={`/gamer/${userData.id}`} className={styles.UserData}
             key={userData.GamerTag + i}>
             <img src={`${userData.avatar_png}`}/>
             <p>{userData.GamerTag}</p>
             <p>{userData.platforms}</p>
           </NavLink>
-          :
-          <></>
       )}
   </div>;
 }
