@@ -5,9 +5,6 @@ import styles from './Header.css';
 export default function Header() {
   return (
     <header className={styles.Header}>
-      <div className={styles.MenuContainer}>
-        {/* <SlideOutMenu /> */}
-      </div>
 
       <h1>Twitch Tok</h1>
 

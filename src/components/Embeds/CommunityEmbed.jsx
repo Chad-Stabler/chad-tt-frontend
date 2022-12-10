@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import TwitchEmbed from './Twitch';
 import YouTubeEmbed from './YouTube';
 import CommentComponent from '../Page/CommentComponent';
@@ -6,6 +7,7 @@ import CommentForm from '../Forms/CommentForm';
 import { useState } from 'react';
 import { useUser } from '../../state/UserContext';
 import { addDownvote, addUpvote } from '../../services/fetch-utils';
+import MedalEmbed from './MedalEmbed';
 
 
 export default function CommunityEmbed({ clip, allVideos }) {
@@ -35,8 +37,15 @@ export default function CommunityEmbed({ clip, allVideos }) {
   }
   return (
     <div className={styles.EmbedCard}>
-      {clip.o_site === 'youtube' ? <YouTubeEmbed embedId={clip.clip_link}/> 
-        : <TwitchEmbed URL={clip.clip_link}/>}
+      {
+        clip.o_site === 'youtube' && <YouTubeEmbed embedId={clip.clip_link}/>
+      }
+      {
+        clip.o_site === 'twitch' && <TwitchEmbed URL={clip.clip_link}/>
+      }
+      {
+        clip.o_site === 'medal' && <MedalEmbed URL={clip.clip_link}/>
+      }
       <div className={styles.ClipInfo}>
         <h1>{clip.title}</h1>
         <div className={styles.ClipDesc}>{clip.description 
@@ -51,18 +60,20 @@ export default function CommunityEmbed({ clip, allVideos }) {
         <p>Up votes: {up_votes}</p>
         <p>Down votes: {down_votes}</p>
       </div>
-      <div className={styles.Buttons}>
-        <button onClick={handleActive}>Add new comment</button>
-        <div className={active ? styles.on : styles.off}>
-          <CommentForm 
-            setActive={setActive} 
-            fetchVideos={allVideos} 
-            clipId={clip.id}
-            userId={user.id} />
-        </div>
-        <button onClick={async () => await handleUpvote()}>Up Vote</button>
-        <button onClick={async () => await handleDownvote()}>Down Vote</button>
-      </div>
+      {
+        clip.users_id !== user.id ? <div className={styles.Buttons}>
+          <button onClick={handleActive}>Add new comment</button>
+          <div className={active ? styles.on : styles.off}>
+            <CommentForm 
+              setActive={setActive} 
+              fetchVideos={allVideos} 
+              clipId={clip.id}
+              userId={user.id} />
+          </div>
+          <button onClick={async () => await handleUpvote()}>Up Vote</button>
+          <button onClick={async () => await handleDownvote()}>Down Vote</button>
+        </div> : <></>
+      }
     </div>
   );
 }
