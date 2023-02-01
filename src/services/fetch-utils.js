@@ -7,9 +7,11 @@ export async function uploadVideo({ clip_link, description, o_site, title }, id)
   return newClip;
 }
 
-export async function getUserVideos(id) {
+export async function getUserVideos(id, from = 0, to = 7) {
   const clips = await get(`${process.env.CLIP_URL}/user/${id}`);
-  return clips.data;
+  const data = clips.data;
+
+  return data.slice(from, to);
 }
 
 export async function deleteVideo(clipId) {

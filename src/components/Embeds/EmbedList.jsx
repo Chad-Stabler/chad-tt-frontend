@@ -4,8 +4,8 @@ import styles from './Embeds.css';
 import EmbedCard from './EmbedCard';
 
 export default function EmbedList({ active, setActive, fetchVideos, 
-  clips, currUser }) {
-
+  clips, currUser, infiniteScrollRef }) {
+  
   useEffect(() => {
     fetchVideos();
   }, []);
@@ -26,13 +26,16 @@ export default function EmbedList({ active, setActive, fetchVideos,
   return <div className={styles.ListCard}>
     <div className={styles.EmbedList}>
       {
-        clips.map((clip, i) => <EmbedCard key={clip + i}
-          clip={clip}
-          fetchVideos={fetchVideos}
-          deleteClip={deleteClip}
-        />
-        )
-      }
+        clips.map((clip, i) => {
+          const ref = i == clips.length - 3 ? infiniteScrollRef : undefined;
+
+          return (<EmbedCard key={clip + i}
+            clip={clip}
+            fetchVideos={fetchVideos}
+            deleteClip={deleteClip}
+            infiniteScrollRef={ref}
+          />);
+        })}
     </div>
     {currUser && <button onClick={handleActive}>Add new clip</button>}
   </div>;
