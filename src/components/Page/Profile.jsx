@@ -7,7 +7,7 @@ import ProfileForms from '../Forms/ProfileForms';
 import { useState } from 'react';
 import { getUserVideos } from '../../services/fetch-utils';
 import { useUser } from '../../state/UserContext';
-import { useEffect } from 'react';
+
 
 
 
@@ -22,15 +22,24 @@ export default function Profile() {
   async function fetchVideos() {
     const from = page * perPage - perPage;
     const to = page * perPage;
-    const vids = await getUserVideos(user.id, from, to);
-    setClips(vids);
+    
+    //in the case of adding a new clip, this block should execute
+    if (clips.length > 2) {
+      //like the nextPage function, saves current clips
+      // in the block for later use
+      const currentVids = clips;
+      //gets an array with the 0 index of clip table(newest clip)
+      const newClip = await getUserVideos(user.id, 0, 1);
+      //concatenates the two arrays like the nextPage function
+      setClips(newClip.concat(currentVids));
+    } else {
+      const vids = await getUserVideos(user.id, from, to);
+      setClips(vids);
+    }
   }
 
-  useEffect(() => {
-    fetchVideos();
-  }, []);
 
-  async function fetchMoreClips() {
+  async function fetchMoreVideos() {
     if (page !== 1) {
       const from = page * perPage - perPage;
       const to = page * perPage;
@@ -42,7 +51,7 @@ export default function Profile() {
   const nextPage = async () => {
     const firstClips = clips;
     setPage(page + 1);
-    const moreClips = await fetchMoreClips();
+    const moreClips = await fetchMoreVideos();
     const newLoad = firstClips.concat(moreClips);
     setClips(newLoad);
   };
@@ -61,6 +70,7 @@ export default function Profile() {
     <EmbedList 
       active={active} setActive={setActive} clips={clips}
       currUser={true}
+      fetchVideos={fetchVideos}
       infiniteScrollRef={infiniteScrollRef}
     />
     <div className={active ? styles.on : styles.off}>
