@@ -7,7 +7,7 @@ export async function uploadVideo({ clip_link, description, o_site, title }, id)
   return newClip;
 }
 
-export async function getUserVideos(id, from = 0, to = 7) {
+export async function getUserVideos(id, from = 0, to = 5) {
   const clips = await get(`${process.env.CLIP_URL}/user/${id}`);
   const data = clips.data;
 

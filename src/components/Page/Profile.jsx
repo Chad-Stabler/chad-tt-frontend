@@ -7,6 +7,7 @@ import ProfileForms from '../Forms/ProfileForms';
 import { useState } from 'react';
 import { getUserVideos } from '../../services/fetch-utils';
 import { useUser } from '../../state/UserContext';
+import { useEffect } from 'react';
 
 
 
@@ -21,16 +22,29 @@ export default function Profile() {
   async function fetchVideos() {
     const from = page * perPage - perPage;
     const to = page * perPage;
-    const clips = await getUserVideos(user.id, from, to);
-    setClips(clips);
+    const vids = await getUserVideos(user.id, from, to);
+    setClips(vids);
   }
-  console.log(clips);
+
+  useEffect(() => {
+    fetchVideos();
+  }, []);
+
+  async function fetchMoreClips() {
+    if (page !== 1) {
+      const from = page * perPage - perPage;
+      const to = page * perPage;
+      const vids = await getUserVideos(user.id, from, to);
+      return vids;
+    }
+  }
 
   const nextPage = async () => {
     const firstClips = clips;
     setPage(page + 1);
-    await fetchVideos();
-    setClips(firstClips.concat(clips));
+    const moreClips = await fetchMoreClips();
+    const newLoad = firstClips.concat(moreClips);
+    setClips(newLoad);
   };
 
   const infiniteScrollRef = useInView({
@@ -45,8 +59,7 @@ export default function Profile() {
   return <section className={styles.ProfileCss}>
     <ProfileCard />
     <EmbedList 
-      active={active} setActive={setActive} 
-      fetchVideos={fetchVideos} clips={clips}
+      active={active} setActive={setActive} clips={clips}
       currUser={true}
       infiniteScrollRef={infiniteScrollRef}
     />

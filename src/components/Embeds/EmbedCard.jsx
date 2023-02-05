@@ -16,6 +16,7 @@ export default function EmbedCard({ clip, deleteClip,
     setActive(!active);
   }
 
+  if (!clip) return;
   return (
     <div className={styles.EmbedCard} ref={infiniteScrollRef}>
       {
