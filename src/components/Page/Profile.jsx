@@ -4,7 +4,7 @@ import EmbedList from '../Embeds/EmbedList';
 import styles from '../Page/Profile.css';
 import ProfileCard from './ProfileCard';
 import ProfileForms from '../Forms/ProfileForms';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { getUserVideos } from '../../services/fetch-utils';
 import { useUser } from '../../state/UserContext';
 
@@ -22,20 +22,8 @@ export default function Profile() {
   async function fetchVideos() {
     const from = 0;
     const to = page * perPage;
-    
-    //in the case of adding a new clip, this block should execute
-    if (page > 1) {
-      //like the nextPage function, saves current clips
-      // in the block for later use
-      const currentVids = clips;
-      //gets an array with the 0 index of clip table(newest clip)
-      const newClip = await getUserVideos(user.id, 0, 1);
-      //concatenates the two arrays like the nextPage function
-      setClips(newClip.concat(currentVids));
-    } else {
-      const vids = await getUserVideos(user.id, from, to);
-      setClips(vids);
-    }
+    const vids = await getUserVideos(user.id, from, to);
+    setClips(vids);
   }
 
   useEffect(() => {
@@ -45,7 +33,7 @@ export default function Profile() {
   const nextPage = async () => {
     const firstClips = clips;
     setPage(page + 1);
-    const moreClips = await fetchMoreClips();
+    const moreClips = await fetchVideos();
     const newLoad = firstClips.concat(moreClips);
     setClips(newLoad);
   };
@@ -66,7 +54,6 @@ export default function Profile() {
       currUser={true}
       fetchVideos={fetchVideos}
       infiniteScrollRef={infiniteScrollRef}
-      fetchVideos={fetchVideos}
     />
     <div className={active ? styles.on : styles.off}>
       <ProfileForms setActive={setActive} fetchVideos={fetchVideos}/>
