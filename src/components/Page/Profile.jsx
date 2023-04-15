@@ -20,7 +20,7 @@ export default function Profile() {
   const perPage = 6;
 
   async function fetchVideos() {
-    const from = page * perPage - perPage;
+    const from = 0;
     const to = page * perPage;
     
     //in the case of adding a new clip, this block should execute
@@ -38,20 +38,14 @@ export default function Profile() {
     }
   }
 
-
-  async function fetchMoreVideos() {
-    if (page !== 1) {
-      const from = page * perPage - perPage;
-      const to = page * perPage;
-      const vids = await getUserVideos(user.id, from, to);
-      return vids;
-    }
-  }
+  useEffect(() => {
+    fetchVideos();
+  }, [clips]);
 
   const nextPage = async () => {
     const firstClips = clips;
     setPage(page + 1);
-    const moreClips = await fetchMoreVideos();
+    const moreClips = await fetchMoreClips();
     const newLoad = firstClips.concat(moreClips);
     setClips(newLoad);
   };
@@ -72,9 +66,10 @@ export default function Profile() {
       currUser={true}
       fetchVideos={fetchVideos}
       infiniteScrollRef={infiniteScrollRef}
+      fetchVideos={fetchVideos}
     />
     <div className={active ? styles.on : styles.off}>
-      <ProfileForms setActive={setActive} fetchVideos={fetchVideos} />
+      <ProfileForms setActive={setActive} fetchVideos={fetchVideos}/>
     </div>
   </section>;
 
