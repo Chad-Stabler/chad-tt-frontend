@@ -24,7 +24,7 @@ export default function Profile() {
     const to = page * perPage;
     
     //in the case of adding a new clip, this block should execute
-    if (clips.length > 2) {
+    if (page > 1) {
       //like the nextPage function, saves current clips
       // in the block for later use
       const currentVids = clips;
