@@ -53,9 +53,11 @@ export async function getAllUserData() {
   return users.data;
 }
 
-export async function getAllVideos() {
+export async function getAllVideos(from = 0, to = 9) {
   const allClips = await get(`${process.env.CLIP_URL}`);
-  return allClips.data;
+  const data =  allClips.data;
+
+  return data.slice(from, to);
 }
 
 export async function postComment(obj) {
