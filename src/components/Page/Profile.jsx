@@ -1,5 +1,4 @@
 //import React from 'react';
-import { useInView } from 'react-intersection-observer';
 import EmbedList from '../Embeds/EmbedList';
 import styles from '../Page/Profile.css';
 import ProfileCard from './ProfileCard';
@@ -7,29 +6,22 @@ import ProfileForms from '../Forms/ProfileForms';
 import { useState, useEffect } from 'react';
 import { getUserVideos } from '../../services/fetch-utils';
 import { useUser } from '../../state/UserContext';
-
-
-
-
+import { useClipContext } from '../../state/ClipContext';
+import { useInView } from 'react-intersection-observer';
 
 export default function Profile() {
+  const { clips, setClips, page, 
+    setPage, perPage, setPerPage } = useClipContext();
   const { user } = useUser();
   const [active, setActive] = useState(false);
-  const [clips, setClips] = useState([]);
-  const [page, setPage] = useState(1);
-  const perPage = 6;
 
   async function fetchVideos() {
+    setPerPage(6);
     const from = 0;
     const to = page * perPage;
     const vids = await getUserVideos(user.id, from, to);
     setClips(vids);
   }
-
-  useEffect(() => {
-    fetchVideos();
-  }, [clips]);
-
   const nextPage = async () => {
     const firstClips = clips;
     setPage(page + 1);
@@ -44,6 +36,10 @@ export default function Profile() {
       if (inView) nextPage();
     }
   }).ref;
+
+  useEffect(() => {
+    fetchVideos();
+  }, [clips]);
 
 
 
