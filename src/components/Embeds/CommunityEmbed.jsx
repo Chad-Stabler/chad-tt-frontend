@@ -1,16 +1,16 @@
 /* eslint-disable max-len */
 import TwitchEmbed from './Twitch';
 import YouTubeEmbed from './YouTube';
+import MedalEmbed from './MedalEmbed';
 import CommentComponent from '../Page/CommentComponent';
 import styles from './Embeds.css';
 import CommentForm from '../Forms/CommentForm';
 import { useState } from 'react';
 import { useUser } from '../../state/UserContext';
 import { addDownvote, addUpvote } from '../../services/fetch-utils';
-import MedalEmbed from './MedalEmbed';
 
 
-export default function CommunityEmbed({ clip, allVideos }) {
+export default function CommunityEmbed({ clip, allVideos, infiniteScrollRef }) {
   const [active, setActive] = useState(false);
   const { user } = useUser();
   let up_votes = 0;
@@ -35,8 +35,9 @@ export default function CommunityEmbed({ clip, allVideos }) {
     await addUpvote(clip.id, user.id);
     await allVideos();
   }
+  if (!clip) return <></>;
   return (
-    <div className={styles.EmbedCard}>
+    <div className={styles.EmbedCard} ref={infiniteScrollRef}>
       {
         clip.o_site === 'youtube' && <YouTubeEmbed embedId={clip.clip_link}/>
       }

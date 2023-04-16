@@ -7,9 +7,11 @@ export async function uploadVideo({ clip_link, description, o_site, title }, id)
   return newClip;
 }
 
-export async function getUserVideos(id) {
+export async function getUserVideos(id, from = 0, to = 5) {
   const clips = await get(`${process.env.CLIP_URL}/user/${id}`);
-  return clips.data;
+  const data = clips.data;
+
+  return data.slice(from, to);
 }
 
 export async function deleteVideo(clipId) {
@@ -51,9 +53,11 @@ export async function getAllUserData() {
   return users.data;
 }
 
-export async function getAllVideos() {
+export async function getAllVideos(from = 0, to = 9) {
   const allClips = await get(`${process.env.CLIP_URL}`);
-  return allClips.data;
+  const data =  allClips.data;
+
+  return data.slice(from, to);
 }
 
 export async function postComment(obj) {

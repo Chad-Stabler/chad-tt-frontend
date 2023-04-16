@@ -7,7 +7,8 @@ import MedalEmbed from './MedalEmbed';
 import { useUser } from '../../state/UserContext';
 
 
-export default function EmbedCard({ clip, deleteClip, fetchVideos }) {
+export default function EmbedCard({ clip, deleteClip,
+  fetchVideos, infiniteScrollRef }) {
   const [active, setActive] = useState(false);
   const { user } = useUser();
 
@@ -15,8 +16,9 @@ export default function EmbedCard({ clip, deleteClip, fetchVideos }) {
     setActive(!active);
   }
 
+  if (!clip) return;
   return (
-    <div className={styles.EmbedCard}>
+    <div className={styles.EmbedCard} ref={infiniteScrollRef}>
       {
         clip.o_site === 'youtube' && <YouTubeEmbed embedId={clip.clip_link}/>
       }
