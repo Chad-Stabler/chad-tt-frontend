@@ -1,13 +1,16 @@
 import { deleteVideo } from '../../services/fetch-utils';
 import styles from './Embeds.css';
 import EmbedCard from './EmbedCard';
-import { useEffect } from 'react';
+import Loading from '../Page/Loading';
+import { useEffect, useState } from 'react';
 
 export default function EmbedList({ active, setActive, fetchVideos, 
   clips, currUser, infiniteScrollRef }) {
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     fetchVideos();
+    setLoading(false);
   }, []);
 
   async function deleteClip(clipId) {
@@ -24,7 +27,7 @@ export default function EmbedList({ active, setActive, fetchVideos,
 
   return <div className={styles.ListCard}>
     <div className={styles.EmbedList}>
-      {
+      { loading ? <Loading/> : 
         clips.map((clip, i) => {
           const ref = i == clips.length - 3 ? infiniteScrollRef : undefined;
           if (clip) return (<EmbedCard key={clip + i}
